@@ -15,10 +15,22 @@ class HomeRepository {
             TARANTINO
         ))
         listMovie.add(Movie(
+            TAXI_DRIVER,
+            TAXI_DRIVER_SINOPSE,
+            R.drawable.taxidriver,
+            MARTIN_SCORSESE
+        ))
+        listMovie.add(Movie(
             DJANGO,
             DJANGO_SINOPSE,
             R.drawable.jango,
             TARANTINO
+        ))
+        listMovie.add(Movie(
+            GOODFELLAS,
+            GOODFELLAS_SINOPSE,
+            R.drawable.bonscompanheiros,
+            MARTIN_SCORSESE
         ))
         listMovie.add(Movie(
             RESEVOIR_DOGS,
@@ -27,21 +39,9 @@ class HomeRepository {
             TARANTINO
         ))
         listMovie.add(Movie(
-            TAXI_DRIVER,
-            TAXI_DRIVER_SINOPSE,
-            R.drawable.taxidriver,
-            MARTIN_SCORSESE
-        ))
-        listMovie.add(Movie(
             WOLF_WALLSTREET,
             WOLF_WALLSTREET_SINOPSE,
             R.drawable.wolfwallstreet,
-            MARTIN_SCORSESE
-        ))
-        listMovie.add(Movie(
-            GOODFELLAS,
-            GOODFELLAS_SINOPSE,
-            R.drawable.bonscompanheiros,
             MARTIN_SCORSESE
         ))
 

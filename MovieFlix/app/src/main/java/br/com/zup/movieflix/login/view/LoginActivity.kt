@@ -22,22 +22,32 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        observers()
         binding.tvRegistro.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         binding.bvLogin.setOnClickListener {
-            val user = binding.etUsername.text.toString()
-            val password =  binding.etPassword.text.toString()
-            var login = LoginModel(user,password)
-            viewModel.authentication(login)
-            viewModel.response.observe(this){
-                if(it.accessAuth){
-                    startActivity(Intent(this, HomeActivity::class.java))
-                }else{
-                    Toast.makeText(this, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show()
-                }
+            authenticate()
+        }
+
+    }
+
+    fun authenticate(){
+        val user = binding.etUsername.text.toString()
+        val password =  binding.etPassword.text.toString()
+        val login = LoginModel(user,password)
+
+        viewModel.authentication(login)
+
+    }
+
+    fun observers(){
+        viewModel.response.observe(this){
+            if(it.accessAuth){
+                startActivity(Intent(this, HomeActivity::class.java))
+            }else{
+                Toast.makeText(this, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show()
             }
         }
     }
