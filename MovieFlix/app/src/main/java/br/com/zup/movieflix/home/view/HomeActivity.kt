@@ -1,13 +1,16 @@
 package br.com.zup.movieflix.home.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.zup.movieflix.CHAVE_MOVIE
 import br.com.zup.movieflix.databinding.ActivityHomeBinding
 import br.com.zup.movieflix.home.model.Movie
 import br.com.zup.movieflix.home.view.adapter.HomeAdapter
 import br.com.zup.movieflix.home.viewmodel.HomeViewModel
+import br.com.zup.movieflix.moviedetail.view.MovieDetailActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -41,7 +44,10 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun goToMovieDetail(movie: Movie) {
-        //TODO ir para a tela de detalhes do flme
+        val intent = Intent(this, MovieDetailActivity::class.java).apply {
+            putExtra(CHAVE_MOVIE,movie)
+        }
+        startActivity(intent)
     }
 
 }
