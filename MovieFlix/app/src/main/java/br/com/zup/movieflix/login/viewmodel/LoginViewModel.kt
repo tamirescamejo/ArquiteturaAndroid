@@ -18,6 +18,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private var _response: MutableLiveData<LoginModel> = MutableLiveData()
     val response: LiveData<LoginModel> = _response
 
+
+
     fun authentication (login : LoginModel){
         try {
             _response.value = repository.authenticate(login)
