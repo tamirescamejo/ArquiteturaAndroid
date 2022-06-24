@@ -1,5 +1,8 @@
 package br.com.zup.movieflix
 
+const val PREFERENCE_KEY = "br.com.zup.movieflix.PREFERENCE_KEY"
+const val USER_NAME_LOGIN_KEY = "br.com.zup.movieflix.USER_NAME_LOGIN_KEY"
+const val USER_PASSWORD_LOGIN_KEY = "br.com.zup.movieflix.USER_PASSWORD_LOGIN_KEY"
 const val CHAVE_MOVIE = "CHAVE_MOVIE"
 const val PULP_FICTION = " Pulp Fiction"
 const val PULP_FICTION_SINOPSE = "Assassino que trabalha para a máfia se apaixona pela esposa de seu chefe quando é convidado a acompanhá-la, um boxeador descumpre sua promessa de perder uma luta e um casal tenta um assalto que rapidamente sai do controle."
