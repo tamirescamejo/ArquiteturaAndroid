@@ -5,7 +5,7 @@ import br.com.zup.movieflix.moviedetail.datasource.DirectorLocalDataSource
 import br.com.zup.movieflix.moviedetail.model.DirectorModel
 import br.com.zup.movieflix.moviedetail.model.MovieWithDirectorModel
 
-class MovieDetailRepository (val dataSource: DirectorLocalDataSource) {
+class MovieDetailRepository (private val dataSource: DirectorLocalDataSource) {
 
     fun getMovieWithDirector(movie: Movie) : MovieWithDirectorModel{
         val listaDeDiretores = dataSource.directorList

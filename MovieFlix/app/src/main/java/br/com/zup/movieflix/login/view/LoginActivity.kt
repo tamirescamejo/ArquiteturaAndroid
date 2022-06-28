@@ -2,13 +2,11 @@ package br.com.zup.movieflix.login.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.movieflix.databinding.ActivityLoginBinding
 import br.com.zup.movieflix.home.view.HomeActivity
-import br.com.zup.movieflix.home.viewmodel.HomeViewModel
 import br.com.zup.movieflix.login.model.LoginModel
 import br.com.zup.movieflix.login.viewmodel.LoginViewModel
 import br.com.zup.movieflix.register.view.RegisterActivity
@@ -37,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun authenticate(){
+    private fun authenticate(){
         val user = binding.etUsername.text.toString()
         val password =  binding.etPassword.text.toString()
         val login = LoginModel(user,password)
@@ -46,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun observers(){
+    private fun observers(){
         viewModel.response.observe(this){
             if(it.accessAuth){
                 startActivity(Intent(this, HomeActivity::class.java))

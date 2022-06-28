@@ -8,7 +8,7 @@ import br.com.zup.movieflix.home.model.Movie
 import br.com.zup.movieflix.home.repository.HomeRepository
 import java.lang.Exception
 
-class HomeViewModel() : ViewModel() {
+class HomeViewModel : ViewModel() {
     private val repository = HomeRepository()
     private val _response: MutableLiveData<List<Movie>> = MutableLiveData()
     val response: LiveData<List<Movie>> = _response

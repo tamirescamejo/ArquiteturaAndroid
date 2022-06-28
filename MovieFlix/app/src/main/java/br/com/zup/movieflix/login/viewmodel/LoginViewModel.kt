@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import br.com.zup.movieflix.PREFERENCE_KEY
 import br.com.zup.movieflix.SAVE_USER_PASS_FLAG_KEY
 import br.com.zup.movieflix.USER_NAME_LOGIN_KEY
@@ -26,8 +25,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val saveDataFlag : LiveData<Boolean> = _saveDataFlag
 
 
-    val pref = application.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE)
-    val prefEditor = pref.edit()
+    private val pref = application.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE)
+    private val prefEditor = pref.edit()
 
     fun getSavedData(){
         try {

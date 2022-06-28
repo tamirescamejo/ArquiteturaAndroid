@@ -1,6 +1,5 @@
 package br.com.zup.movieflix.moviedetail.datasource
 
-import android.os.Parcelable
 import br.com.zup.movieflix.MARTIN_SCORSESE
 import br.com.zup.movieflix.MARTIN_SCORSESE_INFO
 import br.com.zup.movieflix.TARANTINO
@@ -9,7 +8,7 @@ import br.com.zup.movieflix.moviedetail.model.DirectorModel
 
 
 class DirectorLocalDataSource {
-    val directorList = mutableListOf<DirectorModel>(
+    val directorList = mutableListOf(
         DirectorModel(
             TARANTINO,
             TARANTINO_INFO
