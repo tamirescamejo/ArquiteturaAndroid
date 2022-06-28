@@ -55,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         viewModel.savedData.observe(this){
-            binding.etUsername.text = it.user.toString()
-            binding.etPassword.text = it.password
+            binding.etUsername.setText(it.user)
+            binding.etPassword.setText(it.password)
         }
     }
 }
