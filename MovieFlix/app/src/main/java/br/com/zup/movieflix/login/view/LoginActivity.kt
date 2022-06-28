@@ -24,6 +24,9 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         observers()
+
+        viewModel.getSavedData()
+
         binding.tvRegistro.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
@@ -50,6 +53,10 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show()
             }
+        }
+        viewModel.savedData.observe(this){
+            binding.etUsername.text = it.user.toString()
+            binding.etPassword.text = it.password
         }
     }
 }
