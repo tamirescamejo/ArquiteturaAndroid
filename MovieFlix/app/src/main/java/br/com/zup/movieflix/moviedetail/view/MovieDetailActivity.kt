@@ -28,9 +28,11 @@ class MovieDetailActivity : AppCompatActivity() {
     }
     fun observable(){
         viewModel.response.observe(this){
-            //todo setar campos
+            binding.imageView.setImageResource(it.movie.image)
             binding.tvMovieTitle.text = it.movie.title
+            binding.tvMovieSinopse.text = it.movie.sinopse
             binding.tvDirectorName.text = it.director.name
+            binding.tvDirectorInfo.text = it.director.info
         }
     }
 }
