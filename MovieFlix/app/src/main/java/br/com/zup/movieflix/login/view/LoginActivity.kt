@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         val password =  binding.etPassword.text.toString()
         val login = LoginModel(user,password)
 
-        viewModel.authentication(login)
+        viewModel.authentication(login, binding.swSaveData.isChecked)
 
     }
 
@@ -57,6 +57,9 @@ class LoginActivity : AppCompatActivity() {
         viewModel.savedData.observe(this){
             binding.etUsername.setText(it.user)
             binding.etPassword.setText(it.password)
+        }
+        viewModel.saveDataFlag.observe(this){
+            binding.swSaveData.isChecked = it
         }
     }
 }

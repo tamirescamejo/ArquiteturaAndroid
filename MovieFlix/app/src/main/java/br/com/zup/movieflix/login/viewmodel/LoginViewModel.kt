@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.zup.movieflix.PREFERENCE_KEY
+import br.com.zup.movieflix.SAVE_USER_PASS_FLAG_KEY
 import br.com.zup.movieflix.USER_NAME_LOGIN_KEY
 import br.com.zup.movieflix.USER_PASSWORD_LOGIN_KEY
 import br.com.zup.movieflix.login.model.LoginModel
@@ -21,6 +22,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val _savedData : MutableLiveData<LoginModel> = MutableLiveData()
     val savedData : LiveData<LoginModel> = _savedData
 
+    private  val _saveDataFlag : MutableLiveData<Boolean> = MutableLiveData()
+    val saveDataFlag : LiveData<Boolean> = _saveDataFlag
+
+
     val pref = application.getSharedPreferences(PREFERENCE_KEY, Context.MODE_PRIVATE)
     val prefEditor = pref.edit()
 
@@ -30,16 +35,24 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             val password = pref.getString(USER_PASSWORD_LOGIN_KEY, "").toString()
             val savedUser = LoginModel(user, password)
             _savedData.value = savedUser
+            _saveDataFlag.value = pref.getBoolean(SAVE_USER_PASS_FLAG_KEY, false)
         }catch (e:Exception){
             Log.i("Error", "------> ${e.message}")
         }
     }
 
-    fun authentication (login : LoginModel){
+    fun authentication (login : LoginModel, flagSaveData:Boolean){
         try {
-            prefEditor.putString(USER_NAME_LOGIN_KEY, login.user)
-            prefEditor.putString(USER_PASSWORD_LOGIN_KEY, login.password)
-            prefEditor.apply()
+            prefEditor.putBoolean(SAVE_USER_PASS_FLAG_KEY, flagSaveData)
+            if(flagSaveData){
+                prefEditor.putString(USER_NAME_LOGIN_KEY, login.user)
+                prefEditor.putString(USER_PASSWORD_LOGIN_KEY, login.password)
+                prefEditor.apply()
+            }else{
+                prefEditor.remove(USER_NAME_LOGIN_KEY)
+                prefEditor.remove(USER_PASSWORD_LOGIN_KEY)
+                prefEditor.apply()
+            }
             _response.value = repository.authenticate(login)
         }catch (ex: Exception){
             Log.i("Error", "------> ${ex.message}")

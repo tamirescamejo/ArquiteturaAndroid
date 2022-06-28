@@ -1,6 +1,7 @@
 package br.com.zup.movieflix
 
 const val PREFERENCE_KEY = "br.com.zup.movieflix.PREFERENCE_KEY"
+const val SAVE_USER_PASS_FLAG_KEY = "br.com.zup.movieflix.SAVE_USER_PASS_FLAG_KEY"
 const val USER_NAME_LOGIN_KEY = "br.com.zup.movieflix.USER_NAME_LOGIN_KEY"
 const val USER_PASSWORD_LOGIN_KEY = "br.com.zup.movieflix.USER_PASSWORD_LOGIN_KEY"
 const val CHAVE_MOVIE = "CHAVE_MOVIE"
