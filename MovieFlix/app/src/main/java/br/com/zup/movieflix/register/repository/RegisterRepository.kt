@@ -1,4 +1,4 @@
-package br.com.zup.movieflix.register.repositorio
+package br.com.zup.movieflix.register.repository
 
 import br.com.zup.movieflix.register.model.RegisterModel
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.zup.movieflix.register.model.RegisterModel
-import br.com.zup.movieflix.register.repositorio.RegisterRepository
+import br.com.zup.movieflix.register.repository.RegisterRepository
 
 class RegisterViewModel: ViewModel() {
 
